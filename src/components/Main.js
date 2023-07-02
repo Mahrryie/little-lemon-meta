@@ -1,26 +1,14 @@
 import React from 'react';
-import Nav from './Nav';
+import { Routes, Route } from 'react-router-dom';
+import Homepage from './Homepage';
+import Bookingpage from './Bookingpage';
 
 const Main = () => {
   return (
-    <main>
-      <div class='banner'>
-        <div class='banner-content'></div>
-        <div class='banner-img'></div>
-      </div>
-      <div clas="specials">
-        <div class="specials-header"></div>
-        <div class="specials-content"></div>
-      </div>
-      <div class="testimonials">
-        <h4>Testmonials</h4>
-        <div class="testimonials-content"></div>
-      </div>
-      <div class='about'>
-      <div class='about-content'></div>
-        <div class='about-img'></div>
-      </div>
-    </main>
+    <Routes>
+      <Route path="/" element={<Homepage />}></Route>
+      <Route path="/booking" element={<Bookingpage />}></Route>
+  </Routes>
   )
 }
 

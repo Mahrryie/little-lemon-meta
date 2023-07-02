@@ -1,0 +1,11 @@
+.nav-list {
+  display: flex;
+  gap: 20px;
+
+  &-item {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 800;
+    color: #000;
+  }
+}
