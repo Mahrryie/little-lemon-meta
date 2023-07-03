@@ -1,9 +1,15 @@
 import './App.scss';
-import Homepage from './pages/Homepage';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Main from './components/Main';
 
 function App() {
   return (
-    <Homepage/>
+    <>
+    <Header/>
+      <Main/>
+     <Footer/>
+     </>
   );
 }
 
