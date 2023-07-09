@@ -1,19 +1,19 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from '../pages/Homepage';
 import Bookingpage from '../pages/Bookingpage';
+import { fetchAPI } from '../api/api';
 
 const Main = () => {
-  const initializeTimes = [
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ]
+  const initializeTimes = () => {
+    return fetchAPI(new Date());
+}
 
   const updateTimes = (state, action) => {
-    if (action.date === '2023-07-23') {return ['19:00', '20:00', '21:00', '22:00']};
-    return initializeTimes;
+    return fetchAPI(new Date(action.date));
   }
 
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
+  const [availableTimes, dispatch] = useReducer(updateTimes,  initializeTimes());
 
   return (
     <Routes>

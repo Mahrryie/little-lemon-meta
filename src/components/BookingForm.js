@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 
 const BookingForm = ({availableTimesProps, dispatch}) => {
 	const [date, setDate] = useState('');
@@ -20,7 +20,7 @@ const BookingForm = ({availableTimesProps, dispatch}) => {
 				<input type="date" id="res-date" value={date} onChange={handleDateChange}/>
 				<label htmlFor="res-time">Choose time</label>
 				<select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
-					{availableTimesProps.map(item => <option>{item}</option>)}
+					{availableTimesProps?.map(item => <option>{item}</option>)}
 				</select>
 				<label htmlFor="guests">Number of guests</label>
 				<input type="number" placeholder="1" min="1" max="10" id="guests" value={numberOfGuests} onChange={(e) => setNumberOfGuests(e.target.value)}/>
