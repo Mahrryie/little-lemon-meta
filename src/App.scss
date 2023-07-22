@@ -30,6 +30,10 @@ ul {
 a {
   color: inherit;
   text-decoration: unset;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .container {
@@ -53,4 +57,48 @@ a {
   font-weight: 500;
   outline-color: transparent;
   border-color: transparent;
+  white-space: nowrap;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($primary-second, 0.9);
+  }
+}
+
+.primary-background {
+	background-color: $primary-first;
+}
+
+.secondary-background {
+	background-color: $secondary-third;
+}
+
+.display-title {
+  @extend .primary-font;
+  font-size: 64px;
+  line-height: 77px;
+  font-weight: 500;
+}
+
+.card-title {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 800;
+}
+
+.small-font {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.paragraph-font {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  color: $primary-first;
+
+  &.dark-color {
+    color: $secondary-fourth;
+  }
 }

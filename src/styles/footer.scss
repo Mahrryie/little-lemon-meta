@@ -1,0 +1,13 @@
+.footer .container {
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+
+  .small-font {
+    margin-bottom: 20px;
+  }
+
+  li + li {
+    margin-top: 5px;
+  }
+}

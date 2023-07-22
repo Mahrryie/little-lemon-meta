@@ -11,6 +11,8 @@ const Main = () => {
   const submitForm = (formData) => {
     const submitResponse = submitAPI(formData);
 
+    console.log(submitResponse, 'submit')
+
     if (submitResponse) {
       navigate('/confirmed');
     }
