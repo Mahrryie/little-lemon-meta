@@ -5,6 +5,10 @@ import Bookingpage from '../pages/Bookingpage';
 import { fetchAPI, submitAPI } from '../api/api';
 import ConfirmedBooking from './ConfirmedBooking';
 
+export const initializeTimes = () => {
+  return fetchAPI(new Date());
+}
+
 const Main = () => {
   const navigate = useNavigate();
 
@@ -17,10 +21,6 @@ const Main = () => {
       navigate('/confirmed');
     }
   }
-
-  const initializeTimes = () => {
-    return fetchAPI(new Date());
- }
 
   const updateTimes = (state, action) => {
     return fetchAPI(new Date(action.date));
