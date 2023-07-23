@@ -1,9 +1,23 @@
 .booking-form {
 	display: grid;
-	max-width: 200px;
+	max-width: 500px;
 	gap: 20px
 }
 
 .confirmation-title {
 	text-align: center;
+}
+
+.input-flex-wrapper {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+
+	.input-wrapper {
+		width: 50%;
+	}
+}
+
+.form-button {
+	width: fit-content;
 }

@@ -3,7 +3,7 @@ import Button from './Button';
 
 const Specials = ({specials}) => {
   return (
-    <div className="specials container">
+    <section className="specials container">
 			<div className="specials-header">
 				<h2 className="display-title">This week's specials</h2>
 				<button className="primary-button banner-button">Online menu</button>
@@ -25,7 +25,7 @@ const Specials = ({specials}) => {
 					</div>
 				))}
 			</div>
-		</div>
+		</section>
   )
 }
 

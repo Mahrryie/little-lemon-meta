@@ -1,7 +1,7 @@
 .banner {
 	.container {
 		display: flex;
-		gap: 10px;
+		gap: 40px;
 		justify-content: space-between;
 	}
 }
@@ -57,11 +57,20 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 40px;
+
+	@media only screen and (max-width: 960px) {
+    flex-direction: column;
+		align-items: flex-start;
+  }
 }
 
 .specials-content {
 	display: flex;
 	gap: 55px;
+
+	@media only screen and (max-width: 960px) {
+    flex-direction: column;
+  }
 }
 
 .specials-img {
@@ -128,6 +137,10 @@
 		display: flex;
 		gap: 20px;
 		margin-top: 50px;
+
+		@media only screen and (max-width: 960px) {
+			flex-direction: column;
+		}
 	}
 
 	.testimonial {
@@ -177,17 +190,25 @@
 
 	.about-img {
 		display: flex;
-		justify-content: flex-end;
+		flex-wrap: wrap;
+		gap: 20px;
+
+		@media only screen and (min-width: 961px) {
+			justify-content: center;
+			gap: 0;
+
+			img {
+				&:first-child {
+					transform: translate(40%, 30%);
+				}
+			}
+		}
 
 		img {
 			max-width: 230px;
 			height: 260px;
 			object-fit: cover;
 			border-radius: 3px;
-
-			&:first-child {
-				transform: translate(40%, 30%);
-			}
 		}
 	}
 }

@@ -40,9 +40,9 @@ const Footer = () => {
           <h5 className="small-font">Links to Socials</h5>
           <ul>
             <li className="paragraph-font dark-color">
-              <a href="facebook.com">Facebook</a></li>
+              <a href="https://facebook.com" target='_blank' rel="noreferrer">Facebook</a></li>
             <li className="paragraph-font dark-color">
-              <a href="instagram.com">Instagram</a></li>
+              <a href="https://instagram.com" target='_blank' rel="noreferrer">Instagram</a></li>
           </ul>
         </div>
       </div>

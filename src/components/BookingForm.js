@@ -4,6 +4,7 @@ import Button from './Button';
 
 const BookingForm = ({availableTimesProps, dispatch, submitFcProp}) => {
 	const [formData, setFormData] = useState({});
+	const [name, setName] = useState('');
 	const [date, setDate] = useState('');
 	const [time, setTime] = useState('');
 	const [numberOfGuests, setNumberOfGuests] = useState(1);
@@ -17,6 +18,7 @@ const BookingForm = ({availableTimesProps, dispatch, submitFcProp}) => {
 	}
 
 	const validationSchema = Yup.object().shape({
+		name: Yup.string().required('Please, tell us your name'),
 		date: Yup.date().required('Please choose a date'),
 		time: Yup.string().required('Please choose a time'),
 		numberOfGuests: Yup.number()
@@ -30,9 +32,9 @@ const BookingForm = ({availableTimesProps, dispatch, submitFcProp}) => {
 		e.preventDefault();
 
 		try {
-      await validationSchema.validate({date, time, numberOfGuests, occasion}, { abortEarly: false });
+      await validationSchema.validate({name, date, time, numberOfGuests, occasion}, { abortEarly: false });
       // Validation succeeded, proceed with form submission
-      console.log('Form submitted:', {date, time, numberOfGuests});
+      console.log('Form submitted:', {name, date, time, numberOfGuests});
 			submitFcProp(date);
     } catch (validationErrors) {
       // Validation failed, update the errors state
@@ -49,16 +51,23 @@ const BookingForm = ({availableTimesProps, dispatch, submitFcProp}) => {
 			<h3 data-test-id='form-title' className='form-title'>Reserve a table</h3>
 			<form className="booking-form" onSubmit={handleSubmit}>
 				<div className='input-wrapper'>
-					<label htmlFor="res-date" className='form-label paragraph-font'>Choose date</label>
-					<input className='form-input' type="date" id="res-date" value={date} onChange={handleDateChange}/>
-					{errors.date && <p className='form-input-error'>{errors.date}</p>}
+					<label htmlFor="res-name" className='form-label paragraph-font'>Your name</label>
+					<input className='form-input' type="text" id="res-name" value={name} onChange={(e) => setName(e.target.value)}/>
+					{errors.name && <p className='form-input-error'>{errors.name}</p>}
 				</div>
-				<div className='input-wrapper'>
-					<label className='form-label paragraph-font' htmlFor="res-time">Choose time</label>
-					<select className="form-select" id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
-						{availableTimesProps?.map(item => <option>{item}</option>)}
-					</select>
-					{errors.time && <p className='form-input-error'>{errors.time}</p>}
+				<div className='input-flex-wrapper'>
+					<div className='input-wrapper'>
+						<label htmlFor="res-date" className='form-label paragraph-font'>Choose date</label>
+						<input className='form-input' type="date" id="res-date" value={date} onChange={handleDateChange}/>
+						{errors.date && <p className='form-input-error'>{errors.date}</p>}
+					</div>
+					<div className='input-wrapper'>
+						<label className='form-label paragraph-font' htmlFor="res-time">Choose time</label>
+						<select className="form-select" id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
+							{availableTimesProps?.map(item => <option>{item}</option>)}
+						</select>
+						{errors.time && <p className='form-input-error'>{errors.time}</p>}
+					</div>
 				</div>
 				<div className='input-wrapper'>
 					<label htmlFor="guests" className='form-label paragraph-font'>Number of guests</label>
@@ -80,7 +89,7 @@ const BookingForm = ({availableTimesProps, dispatch, submitFcProp}) => {
 					</select>
 					{errors.occasion && <p className='form-input-error'>{errors.occasion}</p>}
 				</div>
-				<Button type="submit" btnClass='primary-button'>Make Your reservation</Button>
+				<Button type="submit" btnClass='primary-button form-button' disableCustomClick={true}>Make Your reservation</Button>
 			</form>
 		</div>
   )

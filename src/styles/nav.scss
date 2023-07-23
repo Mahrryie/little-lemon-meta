@@ -2,10 +2,64 @@
   display: flex;
   gap: 20px;
 
+  &:not(.nav-in-hamburger) {
+    @media only screen and (max-width: 960px) {
+      display: none;
+    }
+  }
+
   &-item {
     font-size: 18px;
     line-height: 19px;
     font-weight: 800;
     color: $black;
+  }
+}
+
+.hamburger {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+
+  @media only screen and (min-width: 961px) {
+    display: none;
+  }
+
+  .burger {
+    width: 30px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: black;
+    transform-origin: 1px;
+    transition: .3s all linear;
+  }
+}
+
+.nav-in-hamburger{
+  position: absolute;
+  height: calc(100vh - 100px);
+  flex-direction: column;
+  background-color: $primary-second;
+  right: 0;
+  top: 100px;
+  padding: 60px;
+
+  @media only screen and (min-width: 961px) {
+    display: none;
+  }
+
+  &.show-menu {
+    display: flex;
+
+    @media only screen and (min-width: 961px) {
+      display: none;
+    }
+  }
+
+  li {
+    width: fit-content;
   }
 }
